@@ -1,26 +1,25 @@
 import axios from 'axios';
+import { HttpResponse } from '../common/types';
 
 const baseURL = 'http://localhost:3000/cameras/';
 const withCredentials = true;
-const api = axios.create({ 
+const api = axios.create({
   withCredentials,
   baseURL,
-  headers: {
-    Authorization: "Basic YWRtaW46bHVveGlueGlhbjkx",
-  },
 });
 
-export const index = () => (
+export const index = (): Promise<HttpResponse> => (
   api.get('/')
-)
+);
 
-export const show = (id: number) => (
+export const show = (id: number): Promise<HttpResponse> => (
   api.get(`/${id}`)
-)
+);
 
-export const create = (pinhole_diameter: number) => (
+// tslint:disable-next-line: variable-name
+export const create = (pinhole_diameter: number): Promise<HttpResponse> => (
   api.post(`/`, { pinhole_diameter })
-)
+);
 
 // export default () => ({
 //   type: 'GET_ARCADE_STATE',

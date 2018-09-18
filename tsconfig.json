@@ -4,7 +4,7 @@
         "allowJs": true,
         "target": "es6",
         "noEmitOnError": true,
-        "noImplicitAny": false,
+        "noImplicitAny": true,
         "skipLibCheck": true,
         "allowSyntheticDefaultImports": true,
         "moduleResolution": "Node",
