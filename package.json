@@ -102,6 +102,6 @@
       "json",
       "node"
     ],
-    "testURL": "http://localhost/"
+    "testURL": "http://localhost:3001"
   }
 }
