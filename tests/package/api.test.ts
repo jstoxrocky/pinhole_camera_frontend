@@ -1,31 +1,31 @@
-import { index, show, create } from '../../src/actions/camera';
+import { index, show, create } from '../../src/package/api';
+import { HttpResponse } from '../../src/package/types';
 
 describe('endpoints', () => {
 
   const SUCCESS = 200;
 
-
   describe('index', () => {
     it('should succeed with status 200', async () => {
-      const output = await index();
+      const output: HttpResponse = await index();
       expect(output.status).toBe(SUCCESS);
     });
-  };
+  });
 
   describe('show', () => {
     it('should succeed with status 200', async () => {
-      const output = await show(1);
+      const id = 1;
+      const output: HttpResponse = await show(id);
       expect(output.status).toBe(SUCCESS);
     });
-  };
+  });
 
-    describe('create', () => {
+  describe('create', () => {
     it('should succeed with status 200', async () => {
-      const output = await create(0.65);
+      const pinholeDiameter = 0.65;
+      const output: HttpResponse = await create(pinholeDiameter);
       expect(output.status).toBe(SUCCESS);
     });
-  };
-
-
+  });
 
 });

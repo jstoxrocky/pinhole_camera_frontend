@@ -1,5 +1,6 @@
 {
-    "defaultSeverity": "error",
+	"defaultSeverity": "error",
+	"format": "verbose",
 	"extends": ["tslint:recommended", "tslint-react"],
 	"rules": {
 		"arrow-parens": false,
