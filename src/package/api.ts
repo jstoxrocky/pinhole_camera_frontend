@@ -12,8 +12,8 @@ export const index = (): Promise<HttpResponse> => (
   api.get('/')
 );
 
-export const show = (id: number): Promise<HttpResponse> => (
-  api.get(`/${id}`)
+export const show = (id: number) => (
+  api.get<HttpResponse>(`/${id}`)
 );
 
 export const create = (pinholeDiameter: number): Promise<HttpResponse> => (
