@@ -1,7 +1,7 @@
 import { Reducer, combineReducers } from 'redux';
 import { cameraReducer } from '../camera/reducer';
-import { ApplicationState } from './types';
+import { IApplicationState } from './types';
 
-export const reducer: Reducer<ApplicationState> = combineReducers<ApplicationState>({
+export const reducer: Reducer<IApplicationState> = combineReducers<IApplicationState>({
   camera: cameraReducer,
 });
