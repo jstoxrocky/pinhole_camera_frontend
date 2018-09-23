@@ -3,7 +3,7 @@ import { Reducer } from 'redux';
 import { CameraState, CameraActionTypes } from './types';
 
 const initialState: CameraState = {
-  cameras: [
+  get: [
     {
       id: 0,
       pinhole_diameter: 0,
@@ -15,7 +15,7 @@ const initialState: CameraState = {
       updated_at: '',
     },
   ],
-  camera: {
+  show: {
     id: 0,
     pinhole_diameter: 0,
     focal_length: 0,

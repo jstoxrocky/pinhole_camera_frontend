@@ -10,8 +10,8 @@ export interface Camera {
 }
 
 export interface CameraState {
-  cameras: Camera[];
-  camera: Camera;
+  get: Camera[];
+  show: Camera;
 }
 
 export const enum CameraActionTypes {
