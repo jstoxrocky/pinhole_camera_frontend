@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { HttpResponse } from './types';
+import { IHttpResponse } from './types';
 
 const baseURL = 'http://localhost:3000/cameras/';
 const withCredentials = true;
@@ -8,14 +8,14 @@ const api = axios.create({
   baseURL,
 });
 
-export const index = (): Promise<HttpResponse> => (
+export const index = (): Promise<IHttpResponse> => (
   api.get('/')
 );
 
 export const show = (id: number) => (
-  api.get<HttpResponse>(`/${id}`)
+  api.get<IHttpResponse>(`/${id}`)
 );
 
-export const create = (pinholeDiameter: number): Promise<HttpResponse> => (
+export const create = (pinholeDiameter: number): Promise<IHttpResponse> => (
   api.post(`/`, { pinhole_diameter: pinholeDiameter })
 );

@@ -1,11 +1,19 @@
 import { Action } from 'redux';
-import { HttpResponse } from '../../package/types';
-import { CameraState } from '../camera/types';
+import { IHttpResponse } from '../../package/types';
+import { ICameraState } from '../camera/types';
 
-export interface HTTPAction extends Action {
-  payload: Promise<HttpResponse>;
+export interface IPendingHTTPAction extends Action {
+  payload: Promise<IHttpResponse>;
 }
 
-export interface ApplicationState {
-  camera: CameraState;
+interface IPayload {
+  data: any;
+}
+
+export interface IFulfilledHTTPAction extends Action {
+  payload: IPayload;
+}
+
+export interface IApplicationState {
+  camera: ICameraState;
 }

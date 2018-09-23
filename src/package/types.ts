@@ -1,3 +1,3 @@
-export interface HttpResponse {
+export interface IHttpResponse {
   status: number;
 }

@@ -1,26 +1,48 @@
-import React, { Component, Fragment } from 'react';
+import * as React from 'react';
+import * as Redux from 'redux';
 import { connect } from 'react-redux';
-import * as i from '../store/camera/types';
-import { ApplicationState } from '../store/common/types';
+import { ICameraState } from '../store/camera/types';
+import { IApplicationState } from '../store/common/types';
+import { getCameras } from '../store/camera/actions';
 
 interface OwnProps {
   foo: number;
 }
 
-type StateProps = i.Camera;
-type ReduxState = ApplicationState;
-type Props = StateProps & OwnProps;
+type StateProps = ICameraState;
+type ReduxState = IApplicationState;
 
-class Camera extends Component<Props> {
+interface DispatchProps {
+  dispatch: Redux.Dispatch<any>;
+}
 
-  componentDidMount() {
-    // this.props.dispatch(showCamera(1));
+type Props = StateProps & DispatchProps & OwnProps;
+
+class Camera extends React.Component<Props> {
+
+  async componentDidMount() {
+    this.props.dispatch(getCameras());
   }
 
   render() {
     const props = this.props;
+    const tds = [];
+    for (const row of props.specs) {
+      tds.push(
+        <tr key={row.id}>
+          <td>{row.id}</td>
+          <td>{row.pinhole_diameter}</td>
+          <td>{row.focal_length}</td>
+          <td>{row.image_width}</td>
+          <td>{row.distortion}</td>
+          <td>{row.pinhole_to_image_angle}</td>
+          <td>{row.created_at}</td>
+          <td>{row.updated_at}</td>
+        </tr>,
+      );
+    }
     return (
-      <Fragment>
+      <React.Fragment>
         <div>{this.props.foo}</div>
         <table>
           <tbody>
@@ -34,25 +56,20 @@ class Camera extends Component<Props> {
               <td>created_at</td>
               <td>updated_at</td>
             </tr>
-            <tr>
-              <td>{props.id}</td>
-              <td>{props.pinhole_diameter}</td>
-              <td>{props.focal_length}</td>
-              <td>{props.image_width}</td>
-              <td>{props.distortion}</td>
-              <td>{props.pinhole_to_image_angle}</td>
-              <td>{props.created_at}</td>
-              <td>{props.updated_at}</td>
-            </tr>
+            {tds}
           </tbody>
         </table>
-      </Fragment>
+      </React.Fragment>
     );
   }
 }
 
 function mapStateToProps(state: ReduxState, ownProps: OwnProps): StateProps {
-  return state.camera.show;
+  return state.camera;
 }
 
-export default connect<StateProps, {}, OwnProps>(mapStateToProps)(Camera);
+function mapDispatchToProps(dispatch: Redux.Dispatch<any>, ownProps: OwnProps): DispatchProps {
+  return { dispatch };
+}
+
+export default connect<StateProps, DispatchProps, OwnProps>(mapStateToProps, mapDispatchToProps)(Camera);

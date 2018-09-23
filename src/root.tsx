@@ -2,9 +2,9 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import { Store } from 'redux';
-import { ApplicationState } from '../src/store/common/types';
+import { IApplicationState } from '../src/store/common/types';
 
-const Root: React.SFC<{store: Store<ApplicationState>}> = ({ store }) => (
+const Root: React.SFC<{store: Store<IApplicationState>}> = ({ store }) => (
   <Provider store={store}>
     <App />
   </Provider>
