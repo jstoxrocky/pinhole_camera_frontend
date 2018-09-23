@@ -38,7 +38,7 @@ export const camera = {
 };
 
 export const initialState = {
-  cameras: [
+  get: [
     {
       id: 0,
       pinhole_diameter: 0,
@@ -50,7 +50,7 @@ export const initialState = {
       updated_at: '',
     },
   ],
-  camera: {
+  show: {
     id: 0,
     pinhole_diameter: 0,
     focal_length: 0,
