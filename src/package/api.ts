@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { IHttpResponse } from './types';
 
-const baseURL = 'http://localhost:3000/cameras/';
+const baseURL = 'http://localhost:5000/cameras/';
 const withCredentials = true;
 const api = axios.create({
   withCredentials,
