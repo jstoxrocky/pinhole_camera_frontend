@@ -19,7 +19,8 @@ module.exports = {
       }
     }, {
       test: /\.css$/,
-      loader: ['style-loader', 'css-loader']
+      // loader: ['style-loader', 'css-loader'],
+      use: 'css-loader/locals'
     }, {
       test: /\.(woff2?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       loader: "file?name=fonts/[name].[ext]"
@@ -28,5 +29,5 @@ module.exports = {
   devtool: 'source-map',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '*']
-  },
+  }
 };

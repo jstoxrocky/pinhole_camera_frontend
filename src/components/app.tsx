@@ -1,9 +1,11 @@
 import React from 'react';
 import Camera from './Camera';
+import Header from './Header';
+import 'typeface-roboto';
 
 export default () => (
   <div>
-    <h1>Welcome to my Pinhole Photography Homepage!</h1>
-    <Camera foo={3} />
+    <Header />
+    <Camera />
   </div>
 );
