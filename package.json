@@ -5,7 +5,8 @@
   "main": "src/entry",
   "scripts": {
     "test": "jest",
-    "dev": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "lint": "tslint './**/*.ts?(x)' --exclude './node_modules/**/*.ts?(x)'"
   },
   "author": "",
   "license": "ISC",
