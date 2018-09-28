@@ -24,8 +24,9 @@ export const cameraReducer: Reducer<ICameraState> = (state = initialState, actio
     case CameraActionTypes.GET_CAMERAS_FULFILLED:
     case CameraActionTypes.SHOW_CAMERA_FULFILLED:
     case CameraActionTypes.CREATE_CAMERA_FULFILLED:
-      const update: ICameraState = { specs: action.payload.data} ;
-      return merge({}, state, update);
+      const newState: ICameraState = merge({}, state);
+      newState.specs = action.payload.data;
+      return newState;
     default:
       return state;
     }

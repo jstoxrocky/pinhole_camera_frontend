@@ -1,11 +1,17 @@
 import React from 'react';
-import Camera from './Camera';
+import Data from './Data';
 import Header from './Header';
+import GetButton from './GetButton';
+import CreateButton from './CreateButton';
+import ShowButton from './ShowButton';
 import 'typeface-roboto';
 
 export default () => (
-  <div>
+  <React.Fragment>
     <Header />
-    <Camera />
-  </div>
+    <GetButton />
+    <ShowButton />
+    <CreateButton />
+    <Data />
+  </React.Fragment>
 );
