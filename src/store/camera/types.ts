@@ -11,6 +11,7 @@ export interface ISpecs {
 
 export interface ICameraState {
   specs: ISpecs[];
+  selectCamera: number;
 }
 
 export const enum CameraActionTypes {
@@ -26,4 +27,8 @@ export const enum CameraActionTypes {
   CREATE_CAMERA_PENDING = 'CREATE_CAMERA_PENDING',
   CREATE_CAMERA_FULFILLED = 'CREATE_CAMERA_FULFILLED',
   CREATE_CAMERA_REJECTED = 'CREATE_CAMERA_REJECTED',
+  SELECT_CAMERA = 'SELECT_CAMERA',
+  SELECT_CAMERA_PENDING = 'SELECT_CAMERA_PENDING',
+  SELECT_CAMERA_FULFILLED = 'SELECT_CAMERA_FULFILLED',
+  SELECT_CAMERA_REJECTED = 'SELECT_CAMERA_REJECTED',
 }

@@ -2,7 +2,6 @@ import { cameraReducer } from '../../../src/store/camera/reducer';
 import { merge } from 'lodash';
 import { FSpecs, FInitialState, blankAction } from './fixtures';
 import { IFulfilledHTTPAction } from '../../../src/store/common/types';
-import { ICameraState } from '../../../src/store/camera/types';
 
 describe('camera reducer', () => {
 
@@ -22,9 +21,9 @@ describe('camera reducer', () => {
         },
       };
       const state = await cameraReducer(FInitialState, action);
-      const update: ICameraState = {specs: action.payload.data};
-      const expected = merge({}, FInitialState, update);
-      expect(state).toEqual(expected);
+      const newState = merge({}, FInitialState);
+      newState.specs = action.payload.data;
+      expect(state).toEqual(newState);
     });
   });
 
@@ -37,9 +36,9 @@ describe('camera reducer', () => {
         },
       };
       const state = await cameraReducer(FInitialState, action);
-      const update: ICameraState = {specs: action.payload.data};
-      const expected = merge({}, FInitialState, update);
-      expect(state).toEqual(expected);
+      const newState = merge({}, FInitialState);
+      newState.specs = action.payload.data;
+      expect(state).toEqual(newState);
     });
   });
 
@@ -52,9 +51,25 @@ describe('camera reducer', () => {
         },
       };
       const state = await cameraReducer(FInitialState, action);
-      const update: ICameraState = {specs: action.payload.data};
-      const expected = merge({}, FInitialState, update);
-      expect(state).toEqual(expected);
+      const newState = merge({}, FInitialState);
+      newState.specs = action.payload.data;
+      expect(state).toEqual(newState);
+    });
+  });
+
+  describe('SELECT_CAMERA action', () => {
+    it('should update the state`s selectCamera attribute', async () => {
+      const id = 1;
+      const action: IFulfilledHTTPAction = {
+        type: 'SELECT_CAMERA',
+        payload: {
+          data: id,
+        },
+      };
+      const state = await cameraReducer(FInitialState, action);
+      const newState = merge({}, FInitialState);
+      newState.selectCamera = action.payload.data;
+      expect(state).toEqual(newState);
     });
   });
 
