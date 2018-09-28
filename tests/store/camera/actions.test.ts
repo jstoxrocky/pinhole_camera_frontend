@@ -1,9 +1,9 @@
-import { getCameras, showCamera, createCamera } from '../../../src/store/camera/actions';
+import { getCameras, showCamera, createCamera, selectCamera } from '../../../src/store/camera/actions';
 import { CameraActionTypes } from '../../../src/store/camera/types';
 
 describe('camera-action', () => {
 
-  describe('index', () => {
+  describe('get', () => {
     it('should return with GET_CAMERAS action', async () => {
       const actionType = CameraActionTypes.GET_CAMERAS;
       const output = await getCameras();
@@ -25,6 +25,15 @@ describe('camera-action', () => {
       const actionType = CameraActionTypes.CREATE_CAMERA;
       const pinholeDiameter = 0.85;
       const output = await createCamera(pinholeDiameter);
+      expect(output.type).toBe(actionType);
+    });
+  });
+
+  describe('select', () => {
+    it('should return with CREATE_CAMERA action', async () => {
+      const actionType = CameraActionTypes.SELECT_CAMERA;
+      const id = 1;
+      const output = await selectCamera(id);
       expect(output.type).toBe(actionType);
     });
   });

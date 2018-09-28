@@ -44,4 +44,5 @@ export const FInitialState: ICameraState = {
       updated_at: '',
     },
   ],
+  selectCamera: 0,
 };
