@@ -73,4 +73,20 @@ describe('camera reducer', () => {
     });
   });
 
+  describe('SELECT_PINHOLE_DIAMETER action', () => {
+    it('should update the state`s selectPinholeDiameter attribute', async () => {
+      const pinholeDiameter = 0.85;
+      const action: IFulfilledHTTPAction = {
+        type: 'SELECT_PINHOLE_DIAMETER',
+        payload: {
+          data: pinholeDiameter,
+        },
+      };
+      const state = await cameraReducer(FInitialState, action);
+      const newState = merge({}, FInitialState);
+      newState.selectPinholeDiameter = action.payload.data;
+      expect(state).toEqual(newState);
+    });
+  });
+
 });
