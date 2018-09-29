@@ -45,4 +45,5 @@ export const FInitialState: ICameraState = {
     },
   ],
   selectCamera: 0,
+  selectPinholeDiameter: 0,
 };

@@ -23,3 +23,10 @@ export const selectCamera = (id: number): IFulfilledHTTPAction => ({
     data: id,
   },
 });
+
+export const selectPinholeDiameter = (pinholeDiameter: number): IFulfilledHTTPAction => ({
+  type: CameraActionTypes.SELECT_PINHOLE_DIAMETER,
+  payload: {
+    data: pinholeDiameter,
+  },
+});

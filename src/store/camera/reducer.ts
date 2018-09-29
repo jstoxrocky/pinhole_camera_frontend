@@ -17,6 +17,7 @@ const initialState: ICameraState = {
     },
   ],
   selectCamera: 0,
+  selectPinholeDiameter: 0,
 };
 
 export const cameraReducer: Reducer<ICameraState> = (state = initialState, action: IFulfilledHTTPAction) => {
@@ -30,6 +31,9 @@ export const cameraReducer: Reducer<ICameraState> = (state = initialState, actio
       return newState;
     case CameraActionTypes.SELECT_CAMERA:
       newState.selectCamera = action.payload.data;
+      return newState;
+    case CameraActionTypes.SELECT_PINHOLE_DIAMETER:
+      newState.selectPinholeDiameter = action.payload.data;
       return newState;
     default:
       return state;
