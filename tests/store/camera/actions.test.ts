@@ -50,7 +50,8 @@ describe('camera-action', () => {
   describe('clear camera', () => {
     it('should return with CLEAR_CAMERA action', async () => {
       const actionType = CameraActionTypes.CLEAR_CAMERA;
-      // const output = await actions.clearCamera();
+      const id = 1;
+      const output = await actions.clearCamera(id);
       // expect(output.type).toBe(actionType);
     });
   });
