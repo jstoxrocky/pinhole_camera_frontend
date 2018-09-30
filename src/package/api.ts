@@ -19,3 +19,7 @@ export const show = (id: number) => (
 export const create = (pinholeDiameter: number): Promise<IHttpResponse> => (
   api.post(`/`, { pinhole_diameter: pinholeDiameter })
 );
+
+export const clear = (): Promise<IHttpResponse> => (
+  api.delete(`/`)
+);

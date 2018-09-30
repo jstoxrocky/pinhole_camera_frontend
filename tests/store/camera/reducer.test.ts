@@ -89,4 +89,19 @@ describe('camera reducer', () => {
     });
   });
 
+  describe('CLEAR_CAMERA action', () => {
+    it('should update the state`s camera attribute', async () => {
+      const action: IFulfilledHTTPAction = {
+        type: 'CLEAR_CAMERA_FULFILLED',
+        payload: {
+          data: [],
+        },
+      };
+      const state = await cameraReducer(FInitialState, action);
+      const newState = merge({}, FInitialState);
+      newState.specs = action.payload.data;
+      expect(state).toEqual(newState);
+    });
+  });
+
 });
