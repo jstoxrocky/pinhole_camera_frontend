@@ -4,6 +4,7 @@ import Header from './Header';
 import GetButton from './GetButton';
 import CreateButton from './CreateButton';
 import ShowButton from './ShowButton';
+import ClearButton from './ClearButton';
 import 'typeface-roboto';
 
 export default () => (
@@ -12,6 +13,7 @@ export default () => (
     <GetButton />
     <ShowButton />
     <CreateButton />
+    <ClearButton />
     <Data />
   </React.Fragment>
 );
