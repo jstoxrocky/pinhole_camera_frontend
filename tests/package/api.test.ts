@@ -1,5 +1,4 @@
 import { index, show, create, clear } from '../../src/package/api';
-import { IHttpResponse } from '../../src/package/types';
 
 describe('endpoints', () => {
 
@@ -7,7 +6,7 @@ describe('endpoints', () => {
 
   describe('index', () => {
     it('should succeed with status 200', async () => {
-      const output: IHttpResponse = await index();
+      const output = await index();
       expect(output.status).toBe(SUCCESS);
     });
   });
@@ -15,7 +14,7 @@ describe('endpoints', () => {
   describe('show', () => {
     it('should succeed with status 200', async () => {
       const id = 1;
-      const output: IHttpResponse = await show(id);
+      const output = await show(id);
       expect(output.status).toBe(SUCCESS);
     });
   });
@@ -23,14 +22,19 @@ describe('endpoints', () => {
   describe('create', () => {
     it('should succeed with status 200', async () => {
       const pinholeDiameter = 0.65;
-      const output: IHttpResponse = await create(pinholeDiameter);
+      const output = await create(pinholeDiameter);
       expect(output.status).toBe(SUCCESS);
     });
   });
 
   describe('clear', () => {
     it('should succeed with status 200', async () => {
-      const output: IHttpResponse = await clear();
+      // Create
+      const pinholeDiameter = 0.65;
+      const creationOutput = await create(pinholeDiameter);
+      const id = creationOutput.data[0].id;
+      // Destroy
+      const output = await clear(id);
       expect(output.status).toBe(SUCCESS);
     });
   });
