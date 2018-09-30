@@ -1,4 +1,4 @@
-import { index, show, create } from '../../package/api';
+import { index, show, create, clear } from '../../package/api';
 import { CameraActionTypes } from './types';
 import { IPendingHTTPAction, IFulfilledHTTPAction } from '../common/types';
 
@@ -29,4 +29,9 @@ export const selectPinholeDiameter = (pinholeDiameter: number): IFulfilledHTTPAc
   payload: {
     data: pinholeDiameter,
   },
+});
+
+export const clearCamera = (): IPendingHTTPAction => ({
+  type: CameraActionTypes.CLEAR_CAMERA,
+  payload: clear(),
 });
