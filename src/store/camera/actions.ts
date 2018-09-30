@@ -1,6 +1,6 @@
 import { index, show, create } from '../../package/api';
 import { CameraActionTypes } from './types';
-import { IPendingHTTPAction } from '../common/types';
+import { IPendingHTTPAction, IFulfilledHTTPAction } from '../common/types';
 
 export const getCameras = (): IPendingHTTPAction => ({
   type: CameraActionTypes.GET_CAMERAS,
@@ -15,4 +15,18 @@ export const showCamera = (id: number): IPendingHTTPAction => ({
 export const createCamera = (pinholeDiameter: number): IPendingHTTPAction => ({
   type: CameraActionTypes.CREATE_CAMERA,
   payload: create(pinholeDiameter),
+});
+
+export const selectCamera = (id: number): IFulfilledHTTPAction => ({
+  type: CameraActionTypes.SELECT_CAMERA,
+  payload: {
+    data: id,
+  },
+});
+
+export const selectPinholeDiameter = (pinholeDiameter: number): IFulfilledHTTPAction => ({
+  type: CameraActionTypes.SELECT_PINHOLE_DIAMETER,
+  payload: {
+    data: pinholeDiameter,
+  },
 });
