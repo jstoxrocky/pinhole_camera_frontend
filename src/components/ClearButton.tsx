@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Redux from 'redux';
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
-// import { clearCamera } from '../store/camera/actions';
+import { clearCamera } from '../store/camera/actions';
 
 interface DispatchProps {
   dispatch: Redux.Dispatch<any>;
@@ -17,7 +17,7 @@ class ClearButton extends React.Component<Props> {
   }
 
   handleClick() {
-    // this.props.dispatch((clearCamera()));
+    this.props.dispatch((clearCamera()));
   }
 
   render() {
