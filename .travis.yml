@@ -12,6 +12,7 @@ before_install:
 - docker pull pinholecamera/backend
 - docker run --rm -d -p 5000:5000 pinholecamera/backend
 - docker ps -a
+- curl -v http://0.0.0.0:5000/cameras
 
 install:
   - npm install
