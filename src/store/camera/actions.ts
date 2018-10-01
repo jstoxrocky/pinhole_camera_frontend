@@ -31,7 +31,7 @@ export const selectPinholeDiameter = (pinholeDiameter: number): IFulfilledHTTPAc
   },
 });
 
-export const clearCamera = (): IPendingHTTPAction => ({
+export const clearCamera = (id: number): IPendingHTTPAction => ({
   type: CameraActionTypes.CLEAR_CAMERA,
-  payload: clear(),
+  payload: clear(id),
 });
