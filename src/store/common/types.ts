@@ -1,9 +1,9 @@
 import { Action } from 'redux';
-import { IHttpResponse } from '../../package/types';
 import { ICameraState } from '../camera/types';
+import { AxiosPromise } from 'axios';
 
 export interface IPendingHTTPAction extends Action {
-  payload: Promise<IHttpResponse>;
+  payload: AxiosPromise<any>;
 }
 
 interface IPayload {
